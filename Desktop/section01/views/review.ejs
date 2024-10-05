@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰 작성 - <%= restaurant.name %></title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, form, label, select, textarea, button, a {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Basic styles for the body */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Header and navigation styles */
+        header {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #007bff;
+        }
+
+        /* Main content styles */
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        form label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        form select, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        a {
+            display: inline-block;
+            color: rgb(211, 71, 71);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"> 홈 </a> |
+            <a href="/neighborhood/진북동"> 진북동 </a>  |
+            <a href="/neighborhood/중화산동"> 중화산동 </a>  |
+            <a href="/neighborhood/효자동"> 효자동</a>  |
+            <a href="/neighborhood/금암동"> 금암동</a>  | 
+            <a href="/neighborhood/중앙동"> 중앙동</a>  | 
+            <a href="/neighborhood/서신동"> 서신동</a>  | 
+            <a href="/neighborhood/평화동"> 평화동</a>  | 
+            <a href="/neighborhood/삼천동"> 삼천동</a>  | 
+            <a href="/neighborhood/덕진동"> 덕진동</a>  | 
+            <a href="/neighborhood/우아동"> 우아동</a>  | 
+            <a href="/neighborhood/송천동"> 송천동</a>  | 
+        </nav>
+    </header>
+
+    <h1><%= restaurant.name %> 리뷰 작성</h1>
+    <form action="/restaurant/<%= restaurant.id %>/review" method="POST">
+        <label for="rating">평점:</label>
+        <select id="rating" name="rating" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <label for="comment">코멘트:</label>
+        <textarea id="comment" name="comment" required></textarea><br><br>
+
+        <button type="submit">리뷰 추가</button>
+    </form>
+</body>
+</html>

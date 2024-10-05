@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= category %> 맛집 목록</title>
+    <style>
+        body, h1, ul, li, a {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #007bff;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        ul li a:hover {
+            color: #007bff;
+        }
+
+        .details {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .details .location, .details .feature {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .details .location {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .details .feature {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"> 홈 </a> |
+            <a href="/neighborhood/진북동"> 진북동 </a> |
+            <a href="/neighborhood/중화산동"> 중화산동 </a> |
+            <a href="/neighborhood/효자동"> 효자동 </a> |
+            <a href="/neighborhood/금암동"> 금암동 </a> |
+            <a href="/neighborhood/중앙동"> 중앙동 </a> |
+            <a href="/neighborhood/서신동"> 서신동 </a> |
+            <a href="/neighborhood/평화동"> 평화동 </a> |
+            <a href="/neighborhood/삼천동"> 삼천동 </a> |
+            <a href="/neighborhood/덕진동"> 덕진동 </a> |
+            <a href="/neighborhood/우아동"> 우아동 </a> |
+            <a href="/neighborhood/송천동"> 송천동 </a> |
+        </nav>
+    </header>
+
+    <h1><%= category %> 맛집 목록</h1>
+    <ul>
+        <% restaurants.forEach(function(restaurant) { %>
+            <li>
+                <a href="/restaurant/<%= restaurant.id %>"><%= restaurant.name %></a>
+                <div class="details">
+                    <span class="location">동네: <%= restaurant.location %></span>
+                    <span class="feature">특징: <%= restaurant.details %></span>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

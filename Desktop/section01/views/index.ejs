@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전주 맛집</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, h2, form, input, select, textarea, button, a {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Basic styles for the body */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Container for sections */
+        .section {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '|';
+            position: absolute;
+            right: -15px;
+            color: #333;
+        }
+
+        nav a:last-child::after {
+            content: '';
+        }
+
+        nav a:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        /* Button styles */
+        .add-restaurant-button {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .add-restaurant-button:hover {
+            background: #0056b3;
+        }
+
+        .add-board-button {
+            display: inline-block;
+            background: #28a745;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .add-board-button:hover {
+            background: #218838;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        /* Title styles outside the section */
+        .section-title {
+            margin-bottom: 10px;
+        }
+
+        /* Search form styles */
+        .search-section {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .search-section form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-section input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-section button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-section button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>전주 맛집</h1>
+    <hr>
+
+    <div class="search-section">
+        <form action="/searchRestaurant" method="GET">
+            <input type="text" id="searchQuery" name="searchQuery" placeholder="식당 이름을 입력하세요" required>
+            <button type="submit">검색</button>
+        </form>
+    </div>
+
+    <h2 class="section-title">동네별 맛집</h2>
+    <div class="section">
+        <nav>
+            <a href="/neighborhood/중앙동"> 중앙동 </a>
+            <a href="/neighborhood/중화산동"> 중화산동 </a>
+            <a href="/neighborhood/효자동"> 효자동 </a>
+            <a href="/neighborhood/금암동"> 금암동 </a>
+            <a href="/neighborhood/중앙동"> 중앙동 </a>
+            <a href="/neighborhood/서신동"> 서신동 </a>
+            <a href="/neighborhood/진북동"> 진북동 </a>
+            <a href="/neighborhood/삼천동"> 삼천동 </a>
+            <a href="/neighborhood/덕진동"> 덕진동 </a>
+            <a href="/neighborhood/우아동"> 우아동 </a>
+            <a href="/neighborhood/송천동"> 송천동 </a>
+        </nav>
+    </div>
+
+    <h2 class="section-title">음식 종류별 맛집</h2>
+    <div class="section">
+        <nav>
+            <a href="/category/한식"> 한식 </a>
+            <a href="/category/양식"> 양식 </a>
+            <a href="/category/중식"> 중식 </a>
+            <a href="/category/일식"> 일식 </a>
+            <a href="/category/분식"> 분식 </a>
+            <a href="/category/주점"> 주점 </a>
+        </nav>
+    </div>
+
+    <h2>맛집 추가</h2>
+    <a href="/addRestaurant" class="add-restaurant-button">맛집 추가</a>
+
+    <h2>추천 게시판</h2>
+    <a href="/recommendBoard" class="add-board-button">추천 게시판</a>
+</body>
+</html>

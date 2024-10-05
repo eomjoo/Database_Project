@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛집 추가</title>
+    <style>
+        body, h1, form, label, input, textarea, button {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #007bff;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #28a745;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"> 홈 </a>
+            <a href="/recommendBoard"> 추천 게시판 </a>
+        </nav>
+    </header>
+
+    <h1>맛집 추가</h1>
+    <form action="/addRestaurant" method="POST" enctype="multipart/form-data">
+        <label for="name">맛집 이름:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="location">위치:</label>
+        <select id="location" name="location" required>
+            <option value="진북동">진북동</option>
+            <option value="중화산동">중화산동</option>
+            <option value="효자동">효자동</option>
+            <option value="금암동">금암동</option>
+            <option value="서신동">서신동</option>
+            <option value="평화동">평화동</option>
+            <option value="삼천동">삼천동</option>
+            <option value="덕진동">덕진동</option>
+            <option value="우아동">우아동</option>
+            <option value="송천동">송천동</option>
+            <option value="중앙동">중앙동</option>
+        </select>
+
+        <label for="category">음식 종류:</label>
+        <select id="category" name="category" required>
+            <option value="한식">한식</option>
+            <option value="양식">양식</option>
+            <option value="중식">중식</option>
+            <option value="일식">일식</option>
+            <option value="분식">분식</option>
+            <option value="주점">주점</option>
+        </select>
+
+        <label for="details">특징:</label>
+        <textarea id="details" name="details" required></textarea>
+
+        <label for="description">소개:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="image">이미지:</label>
+        <input type="file" id="image" name="image">
+
+        <button type="submit">맛집 추가</button>
+    </form>
+</body>
+</html>

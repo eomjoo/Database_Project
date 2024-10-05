@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천 게시판</title>
+    <style>
+        body, h1, ul, li, a, button {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: #007bff;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        button {
+            background: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"> 홈 </a> |
+            <a href="/addRestaurant"> 맛집 추가 </a> |
+            <a href="/recommendBoard"> 추천 게시판 </a>
+        </nav>
+    </header>
+
+    <h1>추천 게시판</h1>
+    <ul>
+        <% posts.forEach(function(post) { %>
+            <li>
+                <div>
+                    <h3><%= post.title %></h3>
+                    <p><%= post.content %></p>
+                </div>
+                <form action="/deletePost/<%= post.id %>" method="POST" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                    <button type="submit">삭제</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/newPost">게시물 작성</a>
+</body>
+</html>
